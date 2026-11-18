@@ -1,6 +1,7 @@
 package core.elements;
 
 import core.common.Position;
+import core.exceptions.PositionInvalidException;
 import core.movements.MovementStrategy;
 import core.states.CollectingState;
 
@@ -59,7 +60,17 @@ public class Beacon extends BoardElement {
         this.sensors = sensors;
     }
 
-    public void move(Position position, MovementStrategy movementStrategy) {
-        
+    public boolean isPositionValid(Position position, Board board) {
+        return position.getX() < 0 || position.getX() >= board.getWidth() ||
+                position.getY() < 0 || position.getY() >= board.getHeight();
+    }
+
+    public void move(double dt, Board board) {
+        Position nextPosition = this.getMovementStrategy().nextPosition(this.getPosition(), dt);
+
+        if (this.isPositionValid(nextPosition, board))
+            throw new PositionInvalidException("The position you are in or trying to move into is invalid.");
+
+        this.setPosition(nextPosition);
     }
 }

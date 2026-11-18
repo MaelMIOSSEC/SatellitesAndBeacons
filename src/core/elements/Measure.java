@@ -4,12 +4,12 @@ import core.common.Position;
 
 public class Measure {
     private Position position;
-    private Integer time;
+    private Double time;
     private MeasureValue value;
 
     public Measure(
             Position position,
-            Integer time,
+            Double time,
             MeasureValue value
     ) {
         this.position = position;
@@ -17,12 +17,27 @@ public class Measure {
         this.value = value;
     }
 
-    public Position getPosition() { return position; }
-    public void setPosition(Position position) { this.position = position; }
+    public Position getPosition() {
+        return position;
+    }
 
-    public Integer getTime() { return time; }
-    public void setTime(Integer time) { this.time = time; }
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 
-    public MeasureValue getValue() { return value; }
-    public void setValue(MeasureValue value) { this.value = value; }
+    public Double getTime() {
+        return time;
+    }
+
+    public void setTime(Double time) {
+        this.time = time;
+    }
+
+    public MeasureValue getValue() {
+        return value;
+    }
+
+    public void setValue(MeasureValue value) {
+        this.value = value;
+    }
 }
