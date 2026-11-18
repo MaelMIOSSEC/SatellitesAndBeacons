@@ -1,3 +1,5 @@
+package core.common;
+
 /**
  * Directions cardinales possibles pour le déplacement du robot.
  */

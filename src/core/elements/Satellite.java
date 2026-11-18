@@ -1,4 +1,4 @@
-package Entities;
+package core.elements;
 
 public class Satellite {
 }
