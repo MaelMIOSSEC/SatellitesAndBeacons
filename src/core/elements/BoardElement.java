@@ -1,6 +1,7 @@
 package core.elements;
 
 import core.common.Position;
+import core.movements.MovementStrategy;
 
 public abstract class BoardElement {
     private String label;
@@ -17,12 +18,27 @@ public abstract class BoardElement {
         this.movementStrategy = movementStrategy;
     }
 
-    public String getLabel() { return label; }
-    public void setLabel(String label) { this.label = label; }
+    public String getLabel() {
+        return label;
+    }
 
-    public Position getPosition() { return position; }
-    public void setPosition(Position position) { this.position = position; }
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-    public MovementStrategy getMovementStrategy() { return movementStrategy; }
-    public void setMovementStrategy(MovementStrategy movementStrategy) { this.movementStrategy = movementStrategy; }
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public MovementStrategy getMovementStrategy() {
+        return movementStrategy;
+    }
+
+    public void setMovementStrategy(MovementStrategy movementStrategy) {
+        this.movementStrategy = movementStrategy;
+    }
 }

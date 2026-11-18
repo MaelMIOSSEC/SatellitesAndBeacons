@@ -1,6 +1,7 @@
 package core.elements;
 
 import core.common.Position;
+import core.movements.MovementStrategy;
 import core.states.CollectingState;
 
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package core.elements;
 
 import core.common.Position;
+import core.movements.MovementStrategy;
 
 public class Satellite extends BoardElement {
     private Boolean isAvailable;
@@ -16,6 +17,11 @@ public class Satellite extends BoardElement {
         this.isAvailable = isAvailable;
     }
 
-    public Boolean getAvailable() { return isAvailable; }
-    public void setAvailable(Boolean available) { isAvailable = available; }
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
+    }
 }
