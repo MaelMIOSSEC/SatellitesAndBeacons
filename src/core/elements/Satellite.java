@@ -1,5 +1,7 @@
 package core.elements;
 
+import core.common.Position;
+
 public class Satellite extends BoardElement {
     private Boolean isAvailable;
 

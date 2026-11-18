@@ -1,5 +1,7 @@
 package core.elements;
 
+import core.common.Position;
+
 public abstract class BoardElement {
     private String label;
     private Position position;

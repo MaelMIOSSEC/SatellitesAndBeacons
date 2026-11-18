@@ -1,5 +1,7 @@
 package core.elements;
 
+import core.common.Position;
+
 public class Measure {
     private Position position;
     private Integer time;

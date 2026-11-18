@@ -1,5 +1,6 @@
 package core.elements;
 
+import core.common.Position;
 import core.states.CollectingState;
 
 import java.util.ArrayList;
@@ -25,15 +26,39 @@ public class Beacon extends BoardElement {
         this.sensors = sensors;
     }
 
-    public BeaconState getState() { return state; }
-    public void setState(BeaconState state) { this.state = state; }
+    public BeaconState getState() {
+        return state;
+    }
 
-    public Integer getCapacity() { return capacity;}
-    public void setCapacity(Integer capacity) { this.capacity = capacity; }
+    public void setState(BeaconState state) {
+        this.state = state;
+    }
 
-    public List<Measure> getMeasures() { return measures; }
-    public void setMeasures(List<Measure> measures) { this.measures = measures; }
+    public Integer getCapacity() {
+        return capacity;
+    }
 
-    public List<Sensor> getSensors() { return sensors; }
-    public void setSensors(List<Sensor> sensors) { this.sensors = sensors; }
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<Measure> getMeasures() {
+        return measures;
+    }
+
+    public void setMeasures(List<Measure> measures) {
+        this.measures = measures;
+    }
+
+    public List<Sensor> getSensors() {
+        return sensors;
+    }
+
+    public void setSensors(List<Sensor> sensors) {
+        this.sensors = sensors;
+    }
+
+    public void move(Position position, MovementStrategy movementStrategy) {
+        
+    }
 }
