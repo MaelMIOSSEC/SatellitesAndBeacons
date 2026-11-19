@@ -16,5 +16,4 @@ public interface MovementStrategy {
      * @return the new position of the object after applying the movement strategy
      */
     Position nextPosition(Position currentPosition, double timeStep);
-
 }

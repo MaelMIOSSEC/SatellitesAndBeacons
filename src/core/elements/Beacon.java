@@ -60,15 +60,19 @@ public class Beacon extends BoardElement {
         this.sensors = sensors;
     }
 
-    public boolean isPositionValid(Position position, Board board) {
+    public boolean isPositionInvalid(Position position, Board board) {
         return position.getX() < 0 || position.getX() >= board.getWidth() ||
                 position.getY() < 0 || position.getY() >= board.getHeight();
     }
 
     public void move(double dt, Board board) {
-        Position nextPosition = this.getMovementStrategy().nextPosition(this.getPosition(), dt);
+        MovementStrategy beaconMovementStrategy = this.getMovementStrategy();
+        if (beaconMovementStrategy == null)
+            throw new NullPointerException("No specific movement strategy for this tag.");
 
-        if (this.isPositionValid(nextPosition, board))
+        Position nextPosition = beaconMovementStrategy.nextPosition(this.getPosition(), dt);
+
+        if (this.isPositionInvalid(nextPosition, board))
             throw new PositionInvalidException("The position you are in or trying to move into is invalid.");
 
         this.setPosition(nextPosition);
