@@ -5,7 +5,7 @@ import core.common.Position;
 public class StationaryMovement implements MovementStrategy {
 
     @Override
-    public Position nextPosition(Position current, double timeStep) {
+    public Position nextPosition(Position current, double timeStep, double speed) {
         return current;
     }
 }

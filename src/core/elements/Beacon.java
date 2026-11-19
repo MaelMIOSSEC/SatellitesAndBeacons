@@ -1,7 +1,6 @@
 package core.elements;
 
 import core.common.Position;
-import core.exceptions.PositionInvalidException;
 import core.movements.MovementStrategy;
 import core.states.CollectingState;
 
@@ -18,9 +17,10 @@ public class Beacon extends BoardElement {
             String label,
             Position position,
             MovementStrategy movementStrategy,
+            double speed,
             List<Sensor> sensors
     ) {
-        super(label, position, movementStrategy);
+        super(label, position, movementStrategy, speed);
 
         this.state = new CollectingState();
         this.capacity = 100;
@@ -70,10 +70,12 @@ public class Beacon extends BoardElement {
         if (beaconMovementStrategy == null)
             throw new NullPointerException("No specific movement strategy for this tag.");
 
-        Position nextPosition = beaconMovementStrategy.nextPosition(this.getPosition(), dt);
+        Position nextPosition = beaconMovementStrategy.nextPosition(this.getPosition(), dt, this.getSpeed());
 
-        if (this.isPositionInvalid(nextPosition, board))
-            throw new PositionInvalidException("The position you are in or trying to move into is invalid.");
+        if (this.isPositionInvalid(nextPosition, board)) {
+            this.setSpeed(-this.getSpeed());
+            nextPosition = beaconMovementStrategy.nextPosition(this.getPosition(), dt, this.getSpeed());
+        }
 
         this.setPosition(nextPosition);
     }

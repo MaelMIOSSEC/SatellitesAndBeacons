@@ -15,5 +15,5 @@ public interface MovementStrategy {
      * @param timeStep        the time step (in seconds) since the last position update
      * @return the new position of the object after applying the movement strategy
      */
-    Position nextPosition(Position currentPosition, double timeStep);
+    Position nextPosition(Position currentPosition, double timeStep, double speed);
 }

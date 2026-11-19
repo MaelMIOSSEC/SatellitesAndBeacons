@@ -8,14 +8,10 @@ import core.common.Position;
  */
 public class HorizontalMovement implements MovementStrategy {
 
-    private final double speed;
-
-    public HorizontalMovement(double speed) {
-        this.speed = speed;
-    }
+    public HorizontalMovement() {}
 
     @Override
-    public Position nextPosition(Position currentPosition, double timeStep) {
+    public Position nextPosition(Position currentPosition, double timeStep, double speed) {
         return new Position(currentPosition.getX() + speed * timeStep, currentPosition.getY());
     }
 }

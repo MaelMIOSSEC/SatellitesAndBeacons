@@ -4,11 +4,6 @@ import core.common.Position;
 
 public class SinusoidalMovement implements MovementStrategy {
     /**
-     * Horizontal speed (unit per second)
-     */
-    private final double speedX;
-
-    /**
      * wave height (units)
      */
     private final double amplitude;
@@ -35,14 +30,37 @@ public class SinusoidalMovement implements MovementStrategy {
      * @param amplitude the amplitude of the sinusoidal movement (units)
      * @param frequency the frequency of the sinusoidal movement (oscillations per second)
      */
-    public SinusoidalMovement(double speedX, double amplitude, double frequency) {
-        this.speedX = speedX;
+    public SinusoidalMovement(double amplitude, double frequency) {
         this.amplitude = amplitude;
         this.frequency = frequency;
     }
 
+    public double getAmplitude() {
+        return amplitude;
+    }
+
+    public double getFrequency() {
+        return frequency;
+    }
+
+    public Double getBaseY() {
+        return baseY;
+    }
+
+    public void setBaseY(Double baseY) {
+        this.baseY = baseY;
+    }
+
+    public double getElapsed() {
+        return elapsed;
+    }
+
+    public void setElapsed(double elapsed) {
+        this.elapsed = elapsed;
+    }
+
     @Override
-    public Position nextPosition(Position current, double timeStep) {
+    public Position nextPosition(Position current, double timeStep, double speedX) {
         if (baseY == null) {
             baseY = current.getY();
         }

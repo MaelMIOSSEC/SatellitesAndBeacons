@@ -10,9 +10,10 @@ public class Satellite extends BoardElement {
             String label,
             Position position,
             MovementStrategy movementStrategy,
+            double speed,
             Boolean isAvailable
     ) {
-        super(label, position, movementStrategy);
+        super(label, position, movementStrategy, speed);
 
         this.isAvailable = isAvailable;
     }

@@ -7,15 +7,18 @@ public abstract class BoardElement {
     private String label;
     private Position position;
     private MovementStrategy movementStrategy;
+    private double speed;
 
     public BoardElement(
             String label,
             Position position,
-            MovementStrategy movementStrategy
+            MovementStrategy movementStrategy,
+            double speed
     ) {
         this.label = label;
         this.position = position;
         this.movementStrategy = movementStrategy;
+        this.speed = speed;
     }
 
     public String getLabel() {
@@ -40,5 +43,13 @@ public abstract class BoardElement {
 
     public void setMovementStrategy(MovementStrategy movementStrategy) {
         this.movementStrategy = movementStrategy;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }
